@@ -4,11 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'react-photo-view/dist/react-photo-view.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+import ContextProvider from './context/FitnessContext/ContextProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ContextProvider>
+      <ToastContainer position='top-center' />
+      <App />
+    </ContextProvider>
   </React.StrictMode>
 );
 

@@ -16,6 +16,8 @@ const Header = () => {
                 <li className='text-white mx-4'><NavLink to='/home'>Home</NavLink></li>
                   <li className='text-white mx-4'><NavLink to='/services' >Services</NavLink></li>
                   <li className='text-white mx-4'><NavLink to='/blog'>Blog</NavLink></li>
+                  <li className='text-white mx-4'><NavLink to='/addservice'>Add Service</NavLink></li>
+                  <li className='text-white mx-4'><NavLink to='/login'>Login</NavLink></li>
                 </ul>
               </div>
 
@@ -29,6 +31,8 @@ const Header = () => {
                   <li className='text-white mx-4'><NavLink to='/home'>Home</NavLink></li>
                   <li className='text-white mx-4'><NavLink to='/services' >Services</NavLink></li>
                   <li className='text-white mx-4'><NavLink to='/blog'>Blog</NavLink></li>
+                  <li className='text-white mx-4'><NavLink to='/addservice'>Add Service</NavLink></li>
+                  <li className='text-white mx-4'><NavLink to='/login'>Login</NavLink></li>
                 </ul>
               </div>
             </div>
