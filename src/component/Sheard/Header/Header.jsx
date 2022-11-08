@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../context/FitnessContext/ContextProvider';
 import logo from '../../../images/logo.png'
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext)
   return (
     <div className='bg-[#101010]'>
         <div className='xl:w-[1200px] mx-auto w-[95%]'>
@@ -31,8 +33,25 @@ const Header = () => {
                   <li className='text-white mx-4'><NavLink to='/home'>Home</NavLink></li>
                   <li className='text-white mx-4'><NavLink to='/services' >Services</NavLink></li>
                   <li className='text-white mx-4'><NavLink to='/blog'>Blog</NavLink></li>
-                  <li className='text-white mx-4'><NavLink to='/addservice'>Add Service</NavLink></li>
-                  <li className='text-white mx-4'><NavLink to='/login'>Login</NavLink></li>
+                  {
+                    user?.uid ?
+                      <>
+                        <li className='text-white mx-4'><NavLink to='/addservice'>Add Service</NavLink></li>
+                        <li className='text-white mx-4'><NavLink to='/myreview'>My Review</NavLink></li>
+                        <li>
+                            <label tabIndex={0} className="avatar">
+                              <div className="rounded-full">
+                                {user?.photoURL && <img className='profile-img' src={user?.photoURL} alt='' />}
+                              </div>
+                            </label>
+                        </li>
+                        <button onClick={logOut} className='text-white'>log Out</button>
+                      </>
+                      :
+                      <>
+                        <li className='text-white mx-4'><NavLink to='/login'>Login</NavLink></li>
+                      </>
+                  } 
                 </ul>
               </div>
             </div>
