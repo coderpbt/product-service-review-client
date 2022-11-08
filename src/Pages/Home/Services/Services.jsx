@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ServicesTemplate from './ServicesTemplate';
 
+import { PhotoProvider } from 'react-photo-view';
+
 const Services = () => {
   const [services, setServices] = useState([]);
 
@@ -22,10 +24,11 @@ const Services = () => {
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 pt-2'>
-
+           <PhotoProvider>
             {
               services.map(item => <ServicesTemplate key={item._id} item={item} />)
             }
+            </PhotoProvider>
           </div>
           <div className="card-actions justify-center py-12">
           <button className="btn btn-primary">

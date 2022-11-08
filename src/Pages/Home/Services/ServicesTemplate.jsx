@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import {  PhotoView } from 'react-photo-view';
 
 const ServicesTemplate = ({item}) => {
   const {image_url,title,price,details,_id} = item;
@@ -10,7 +11,9 @@ const ServicesTemplate = ({item}) => {
   }
   return (
     <div className="card card-compact shadow-xl my-12">
-    <figure><img src={image_url} alt="logos" /></figure>
+       <PhotoView src={image_url}>
+       <figure><img src={image_url} alt="logos" /></figure>
+      </PhotoView>
     <div className="card-body">
       <h2 className="card-title text-lg text-left text-black">{title}</h2>
       <div className='flex justify-between'>
