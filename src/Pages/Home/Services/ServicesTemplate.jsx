@@ -7,7 +7,7 @@ const ServicesTemplate = ({item}) => {
   const getcoursesId = useNavigate();
 
   const handlerAddToCart = (_id) => {
-    getcoursesId(`/courses/${_id}`)
+    getcoursesId(`/services/${_id}`)
   }
   return (
     <div className="card card-compact shadow-xl my-12">

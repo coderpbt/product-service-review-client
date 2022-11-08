@@ -1,15 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ServicesAllTemplate from './ServicesAllTemplate';
 import { PhotoProvider } from 'react-photo-view';
+import { useLoaderData } from 'react-router-dom';
 
 const Services = () => {
-  const [services, setServices] = useState([]);
+  const services = useLoaderData()
 
-  useEffect(() => {
-    fetch('http://localhost:4000/servicesall')
-      .then(res => res.json())
-      .then(data => setServices(data))
-  }, [])
   return (
     <div className='bg-[#fff]'>
     <div className='xl:w-[1200px] mx-auto w-[95%]'>
