@@ -21,12 +21,13 @@ const Comment = () => {
     console.log(email, name, textarea)
 
     const reviwes = {
-      Review: _id,
+      reviewIds: _id,
       serviceName: title,
       customer: name,
       email,
       textarea,
-      user: user?.photoURL
+      user: user?.photoURL,
+      uid : user?.uid
     }
 
     fetch(`http://localhost:4000/reviews`, {

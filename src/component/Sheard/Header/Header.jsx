@@ -37,7 +37,7 @@ const Header = () => {
                     user?.uid ?
                       <>
                         <li className='text-white mx-4'><NavLink to='/addservice'>Add Service</NavLink></li>
-                        <li className='text-white mx-4'><NavLink to='/myreview'>My Review</NavLink></li>
+                        <li className='text-white mx-4'><NavLink to='/reviews'>My Review</NavLink></li>
                         <li>
                             <label tabIndex={0} className="avatar">
                               <div className="rounded-full">

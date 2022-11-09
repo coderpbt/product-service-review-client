@@ -6,6 +6,7 @@ const ServiceDetails = () => {
   const servicesData = useLoaderData();
   const [reviwes, setReviwes] = useState([])
   const [refresh,setRefresh] = useState(false)
+  console.log(reviwes);
   useEffect(() => {
     fetch(`http://localhost:4000/reviews`)
       .then(res => res.json())
@@ -13,6 +14,7 @@ const ServiceDetails = () => {
         setRefresh(!refresh)
         setReviwes(data)
       })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [refresh])
   return (
     <div className='bg-[#fff]'>
@@ -36,6 +38,7 @@ const ServiceDetails = () => {
               {
                 reviwes.map(reviweItem =>
                   <div key={reviweItem._id}>
+                   
                     <div className='flex border p-2 mb-5'>
                       <div className='mr-4'>
                         <img className='w-[100px]' src={reviweItem?.user} alt="" />
@@ -45,6 +48,7 @@ const ServiceDetails = () => {
                         <p>{reviweItem.textarea}</p>
                       </div>
                     </div>
+
                   </div>
                 )
               }
