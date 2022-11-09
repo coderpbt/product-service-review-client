@@ -35,9 +35,9 @@ const MyReview = () => {
     }
 }
 
-const handleUpdateReview = (id) => {
-  console.log(id);
-}
+// const handleUpdateReview = (id) => {
+//   console.log(id);
+// }
 
   return (
     <div className='xl:w-[1200px] mx-auto w-[95%]'>
@@ -63,7 +63,6 @@ const handleUpdateReview = (id) => {
               key={myreview._id}
                myreview={myreview} 
                handleDelete={handleDelete}
-               handleUpdateReview={handleUpdateReview}
                />)
             }
           </tbody>
