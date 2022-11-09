@@ -1,17 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
+import useHooks from '../../component/Sheard/Hooks/useHooks';
 import { AuthContext } from '../../context/FitnessContext/ContextProvider';
 import TableReview from './TableReview';
 
 const MyReview = () => {
+  useHooks('My Review');
   const {user} = useContext(AuthContext);
   const [reviwes, setReviwes] = useState([])
-  // const [refresh,setRefresh] = useState(false)
+  const [refresh,setRefresh] = useState(false)
   console.log(reviwes);
   useEffect(() => {
     fetch(`http://localhost:4000/reviews?email=${user?.email}`)
       .then(res => res.json())
       .then(data => {
-        // setRefresh(!refresh)
+        setRefresh(!refresh)
         setReviwes(data)
       })
   // eslint-disable-next-line react-hooks/exhaustive-deps

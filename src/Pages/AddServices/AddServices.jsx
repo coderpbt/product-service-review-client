@@ -1,8 +1,9 @@
 import React from 'react';
+import useHooks from '../../component/Sheard/Hooks/useHooks';
 
 
 const AddServices = () => {
-
+  useHooks('Add Service');
   const handleOnSubmit = (event) => {
     event.preventDefault();
     const form = event.target;

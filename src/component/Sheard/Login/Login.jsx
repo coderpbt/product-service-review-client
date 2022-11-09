@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../../../context/FitnessContext/ContextProvider';
 
 const Login = () => {
-  const {signInwithG,sigIn} = useContext(AuthContext);
+  const {signInwithG,sigIn,loading} = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -48,6 +48,9 @@ const Login = () => {
     })
   }
 
+  if (loading) {
+    return <div className='text-black text-center'><img className='w-[300px] mx-auto' src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" alt="" /></div>
+  }
 
   return (
     <div className="hero min-h-screen">

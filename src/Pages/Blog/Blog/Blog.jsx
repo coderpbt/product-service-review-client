@@ -1,6 +1,8 @@
 import React from 'react';
+import useHooks from '../../../component/Sheard/Hooks/useHooks';
 
 const Blog = () => {
+  useHooks('Blog');
   return (
     <div className="lg:w-[800px] mx-auto w-[95%] lg:my-20 my10">
       <div className="my-8 text-left">

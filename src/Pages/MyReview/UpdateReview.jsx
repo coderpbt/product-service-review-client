@@ -7,7 +7,7 @@ const UpdateReview = () => {
   const [user, setUser] = useState(dataUpdate)
   const handleUpdateUser = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:4000/reviews/edit/${dataUpdate._id}`, {
+    fetch(`http://localhost:4000/reviews/${dataUpdate._id}`, {
       method : 'PUT',
       headers : {
         'content-type' : 'application/json'

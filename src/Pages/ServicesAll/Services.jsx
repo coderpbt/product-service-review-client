@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ServicesAllTemplate from './ServicesAllTemplate';
 import { PhotoProvider } from 'react-photo-view';
 import { useLoaderData } from 'react-router-dom';
+import useHooks from '../../component/Sheard/Hooks/useHooks';
+import { AuthContext } from '../../context/FitnessContext/ContextProvider';
 
 const Services = () => {
-  const services = useLoaderData()
+  const { loading } = useContext(AuthContext)
+  useHooks('Service');
+  const services = useLoaderData();
+
+  if (loading) {
+    return <div className='text-black text-center'><img className='w-[300px] mx-auto' src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" alt="" /></div>
+  }
 
   return (
     <div className='bg-[#fff]'>

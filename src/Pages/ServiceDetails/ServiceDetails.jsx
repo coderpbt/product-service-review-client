@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Comment from '../../component/Sheard/Comment/Comment';
+import useHooks from '../../component/Sheard/Hooks/useHooks';
 
 const ServiceDetails = () => {
+  useHooks('Service Details');
   const servicesData = useLoaderData();
 
   const newReview = useLoaderData()
@@ -49,6 +51,7 @@ const ServiceDetails = () => {
                       <div>
                         <h2 className='text-black font-bold text-xl'>{reviweItem.customer}</h2>
                         <p>{reviweItem.textarea}</p>
+                        <p>{reviweItem.time}</p>
                       </div>
                     </div>
 

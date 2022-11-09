@@ -3,7 +3,6 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../FitnessContext/ContextProvider';
 
 
-
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext)
   const location = useLocation();

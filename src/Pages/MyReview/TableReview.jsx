@@ -24,7 +24,7 @@ const TableReview = ({ myreview, handleDelete }) => {
         </td>
         <td>
           <button>
-            <Link to={`/reviews/edit/${_id}`}>Edit</Link>
+            <Link to={`/reviews/${_id}`}>Edit</Link>
           </button>
           <button onClick={() => handleDelete(_id)} className="btn btn-ghost btn-xs">Delete</button>
         </td>

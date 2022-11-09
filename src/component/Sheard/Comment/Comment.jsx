@@ -18,6 +18,7 @@ const Comment = () => {
     const name = form.name.value;
     const textarea = form.textarea.value;
     const email = form.email.value;
+    const time = new Date().getTime() 
     console.log(email, name, textarea)
 
     const reviwes = {
@@ -27,7 +28,8 @@ const Comment = () => {
       email,
       textarea,
       user: user?.photoURL,
-      uid : user?.uid
+      uid : user?.uid,
+      time,
     }
 
     fetch(`http://localhost:4000/reviews`, {

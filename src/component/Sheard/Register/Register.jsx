@@ -6,7 +6,7 @@ import { AuthContext } from '../../../context/FitnessContext/ContextProvider';
 
 const Register = () => {
 
-  const {createUser, updateProfileName} = useContext(AuthContext)
+  const {createUser, updateProfileName,loading} = useContext(AuthContext)
   const navigate = useNavigate();
 
 
@@ -46,6 +46,10 @@ const Register = () => {
     .catch((error) => {
       console.log(error)
     })
+  }
+
+  if (loading) {
+    return <div className='text-black text-center'><img className='w-[300px] mx-auto' src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" alt="" /></div>
   }
 
 
