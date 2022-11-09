@@ -41,7 +41,7 @@ const Comment = () => {
       .then(data => {
         console.log(data)
         if (data.acknowledged) {
-          alert('Order placed successfully')
+          alert('Review Add successfully')
           form.reset();
 
         }
@@ -50,9 +50,6 @@ const Comment = () => {
 
 
   }
-
-
-
 
   return (
     <div className="hero">

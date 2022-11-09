@@ -20,7 +20,7 @@ const Services = () => {
         <div className='w-[100%]'>
           <div className='text-center'>
             <h2 className='text-4xl text-black font-bold pb-7'>Our Services</h2>
-            <p className='text-base text-black mb-3'>Osed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam <br /> est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci sed quia non numquam qui ratione voluptatem sequi nesciunt.</p>
+            <p className='text-base text-black mb-3'>The best form of health is when you don’t have to worry about it. We believe in the natural way of managing weight. We specialise in adopting long-term lifestyle modifications to maintain a healthy body weight based on personal requirements.</p>
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 pt-2'>

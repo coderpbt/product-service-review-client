@@ -16,7 +16,29 @@ const MyReview = () => {
       })
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.email])
-  console.log(user?.email);
+ 
+  const handleDelete = id =>{
+    const proceed = window.confirm('Are you sure, you want to cancel this order');
+    if(proceed){
+        fetch(`http://localhost:4000/reviews/${id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data.deletedCount > 0){
+                alert('deleted successfully');
+                const remaining = reviwes.filter(odr => odr._id !== id);
+                setReviwes(remaining);
+            }
+        })
+    }
+}
+
+const handleUpdateReview = (id) => {
+  console.log(id);
+}
+
   return (
     <div className='xl:w-[1200px] mx-auto w-[95%]'>
       <div className="overflow-x-auto w-full py-14">
@@ -36,7 +58,13 @@ const MyReview = () => {
           </thead>
           <tbody>
             {
-              reviwes.map(myreview => <TableReview key={myreview._id} myreview={myreview} />)
+              reviwes.map(myreview => 
+              <TableReview 
+              key={myreview._id}
+               myreview={myreview} 
+               handleDelete={handleDelete}
+               handleUpdateReview={handleUpdateReview}
+               />)
             }
           </tbody>
         </table>

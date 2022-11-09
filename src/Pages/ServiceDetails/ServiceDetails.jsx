@@ -4,11 +4,13 @@ import Comment from '../../component/Sheard/Comment/Comment';
 
 const ServiceDetails = () => {
   const servicesData = useLoaderData();
+
+  const newReview = useLoaderData()
   const [reviwes, setReviwes] = useState([])
   const [refresh,setRefresh] = useState(false)
   console.log(reviwes);
   useEffect(() => {
-    fetch(`http://localhost:4000/reviews`)
+    fetch(`http://localhost:4000/reviews/${newReview._id}`)
       .then(res => res.json())
       .then(data => {
         setRefresh(!refresh)
@@ -16,6 +18,7 @@ const ServiceDetails = () => {
       })
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [refresh])
+
   return (
     <div className='bg-[#fff]'>
       <div className='xl:w-[800px] mx-auto w-[95%]'>
@@ -36,7 +39,7 @@ const ServiceDetails = () => {
               <h2 className='text-3xl text-black mb-5'>Reviews</h2>
 
               {
-                reviwes.map(reviweItem =>
+                reviwes?.map(reviweItem =>
                   <div key={reviweItem._id}>
                    
                     <div className='flex border p-2 mb-5'>

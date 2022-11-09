@@ -16,7 +16,6 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    errorElement : <ErrorElement />,
     children:[
       {
         path:'/',
@@ -53,9 +52,19 @@ export const router = createBrowserRouter([
         element:<AddServices />
       },
       {
+        path:'/reviews/:id',
+        loader: ({params}) => fetch(`http://localhost:4000/reviews/${params.id}`),
+        element:<MyReview />
+      },
+      {
         path:'/reviews',
         element:<PrivateRoute><MyReview /></PrivateRoute>
       },
+   
     ]
+  },
+  {
+    path:'*',
+    element:  <ErrorElement />,
   },
 ]);
