@@ -1,47 +1,58 @@
-import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 
 const UpdateReview = () => {
-  const dataUpdate = useLoaderData()
-  // const [user, setUser] = useState(dataUpdate)
-  const [user, setUser] = useState(dataUpdate)
-  const handleUpdateUser = (e) => {
-    e.preventDefault();
-    fetch(`http://localhost:4000/reviews/${dataUpdate._id}`, {
-      method : 'PUT',
-      headers : {
-        'content-type' : 'application/json'
-      },
-      body : JSON.stringify(user)
-    })
-    .then(res => res.json())
-    .then(data => {
-      if (data.modifiedCount > 0) {
-        alert('update succfull')
-      }
-      console.log(data);
-    })
-  }
+  const router = useParams();
+  const [reviews, setReviews] = useState({});
+  const { id } = router;
+  const navigate = useNavigate();
 
-  const handleInputChange = e => {
-    const filedBluer = e.target.name
-    const value = e.target.value
-    
-    const newUser = {...user}
-    newUser[filedBluer] = value
-    setUser(newUser)
-   
+  useEffect(() => {
+    fetch(`http://localhost:4000/reviews/${id}`)
+      .then((res) => res.json())
+      .then((data) => setReviews(data))
+      .catch((err) =>console.log(err));
+  }, [id]);
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const reviews = {
+      name: e.target.name.value,
+      review: e.target.review.value,
+      
+    }
+
+    console.log(reviews);
+
+    fetch(`http://localhost:4000/reviews/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(reviews)
+    }).then(res => res.json())
+    .then(data => {
+        if (data.modifiedCount > 0) {
+          toast.success('Review Update Seccesful')
+        }
+    })
+    .catch(err => console.log(err))
   }
 
   return (
-    <div>
-         <form onSubmit={handleUpdateUser}>
-        <input onChange={handleInputChange} type="text" defaultValue={dataUpdate.name} name="name" placeholder='name' id="" />
+    <div className='py-6'>
+      <div className='xl:w-[700px] mx-auto w-[75%]'>
+         <form onSubmit={handleSubmit}>
+        <input className='border mb-4 w-full p-3'  type="text" defaultValue={reviews?.name} name="name" placeholder='name' id="" />
         <br />
-        <input onChange={handleInputChange} type="email" defaultValue={dataUpdate.email} name="email" placeholder='email' id="" />
+        <input className='border mb-4 w-full p-3' type="text" defaultValue={reviews?.reviews} name="review" placeholder='review' id="" />
         <br />
-        <button>Update</button>
+        <button className="btn btn-primary">Update</button>
       </form>
+      </div>
     </div>
   );
 };

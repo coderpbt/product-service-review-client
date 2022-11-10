@@ -1,4 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import useHooks from '../../component/Sheard/Hooks/useHooks';
 import { AuthContext } from '../../context/FitnessContext/ContextProvider';
 import TableReview from './TableReview';
@@ -8,7 +10,8 @@ const MyReview = () => {
   const {user} = useContext(AuthContext);
   const [reviwes, setReviwes] = useState([])
   const [refresh,setRefresh] = useState(false)
-  console.log(reviwes);
+  const navigate = useNavigate();
+  // console.log(reviwes);
   useEffect(() => {
     fetch(`http://localhost:4000/reviews?email=${user?.email}`)
       .then(res => res.json())
@@ -20,8 +23,6 @@ const MyReview = () => {
   }, [user?.email])
  
   const handleDelete = id =>{
-    const proceed = window.confirm('Are you sure, you want to cancel this order');
-    if(proceed){
         fetch(`http://localhost:4000/reviews/${id}`, {
             method: 'DELETE'
         })
@@ -29,12 +30,17 @@ const MyReview = () => {
         .then(data => {
             console.log(data);
             if (data.deletedCount > 0){
-                alert('deleted successfully');
+                toast.success('deleted successfully')
                 const remaining = reviwes.filter(odr => odr._id !== id);
                 setReviwes(remaining);
             }
         })
-    }
+   
+}
+
+
+const handleEdit = (id) => {
+  navigate(`/reviews/edit/${id}`)
 }
 
 // const handleUpdateReview = (id) => {
@@ -65,6 +71,7 @@ const MyReview = () => {
               key={myreview._id}
                myreview={myreview} 
                handleDelete={handleDelete}
+               handleEdit={handleEdit}
                />)
             }
           </tbody>

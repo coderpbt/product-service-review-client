@@ -1,12 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const TableReview = ({ myreview, handleDelete }) => {
+const TableReview = ({ myreview, handleDelete,handleEdit }) => {
 
-  const { _id, serviceName, textarea } = myreview
+  const { _id, serviceName, textarea,uid } = myreview
+  console.log(myreview);
   return (
     <>
-      <tr>
+      {
+        uid ?
+        <>
+             <tr>
         <th>
           <label>
             <input type="checkbox" className="checkbox" />
@@ -23,12 +26,19 @@ const TableReview = ({ myreview, handleDelete }) => {
           {textarea}
         </td>
         <td>
-          <button>
-            <Link to={`/reviews/${_id}`}>Edit</Link>
+          <button onClick={() => handleEdit(_id)}>
+             Edit
           </button>
           <button onClick={() => handleDelete(_id)} className="btn btn-ghost btn-xs">Delete</button>
         </td>
       </tr>
+        </>
+        :
+        <>
+          <p className='text-2xl text-black'>No reviews were added</p>
+        </>
+      }
+   
 
     </>
   );
