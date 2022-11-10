@@ -61,12 +61,6 @@ export const router = createBrowserRouter([
         path:'/reviews',
         element:<PrivateRoute><MyReview /></PrivateRoute>
       },
-
-      {
-        path:'/reviews',
-        loader : () => fetch('https://b6a11-service-review-server-side-coderpbt.vercel.app/reviews'),
-        element:<UpdateReview />
-      },
       {
         path:'/reviews',
         element:<PrivateRoute><MyReview /></PrivateRoute>
