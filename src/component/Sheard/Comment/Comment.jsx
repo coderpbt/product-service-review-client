@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useContext } from 'react';
 import { Link, useLoaderData, useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../context/FitnessContext/ContextProvider';
 
 const Comment = () => {
@@ -43,7 +44,7 @@ const Comment = () => {
       .then(data => {
         console.log(data)
         if (data.acknowledged) {
-          alert('Review Add successfully')
+          toast.success('Review Add successfully')
           form.reset();
 
         }

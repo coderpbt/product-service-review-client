@@ -5,9 +5,11 @@ import { toast } from 'react-toastify';
 
 const UpdateReview = () => {
   const router = useParams();
-  const [reviews, setReviews] = useState({});
+  const [reviews, setReviews] = useState([]);
   const { id } = router;
   const navigate = useNavigate();
+
+  console.log(reviews);
 
   useEffect(() => {
     fetch(`http://localhost:4000/reviews/${id}`)
@@ -37,6 +39,7 @@ const UpdateReview = () => {
     .then(data => {
         if (data.modifiedCount > 0) {
           toast.success('Review Update Seccesful')
+          navigate('/reviews')
         }
     })
     .catch(err => console.log(err))
@@ -46,9 +49,9 @@ const UpdateReview = () => {
     <div className='py-6'>
       <div className='xl:w-[700px] mx-auto w-[75%]'>
          <form onSubmit={handleSubmit}>
-        <input className='border mb-4 w-full p-3'  type="text" defaultValue={reviews?.name} name="name" placeholder='name' id="" />
+        <input className='border mb-4 w-full p-3'  type="text" defaultValue={reviews?.serviceName} name="name" placeholder='Edit Your Service Name' id="" />
         <br />
-        <input className='border mb-4 w-full p-3' type="text" defaultValue={reviews?.reviews} name="review" placeholder='review' id="" />
+        <input className='border mb-4 w-full p-3' type="text" defaultValue={reviews?.textarea} name="Edit Your Review" placeholder='review' id="" />
         <br />
         <button className="btn btn-primary">Update</button>
       </form>

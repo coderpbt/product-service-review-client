@@ -43,9 +43,6 @@ const handleEdit = (id) => {
   navigate(`/reviews/edit/${id}`)
 }
 
-// const handleUpdateReview = (id) => {
-//   console.log(id);
-// }
 
   return (
     <div className='xl:w-[1200px] mx-auto w-[95%]'>
@@ -66,13 +63,28 @@ const handleEdit = (id) => {
           </thead>
           <tbody>
             {
-              reviwes.map(myreview => 
-              <TableReview 
-              key={myreview._id}
-               myreview={myreview} 
-               handleDelete={handleDelete}
-               handleEdit={handleEdit}
-               />)
+              reviwes.map(myreview =>
+                <>
+                {
+                  myreview.reviewIds ?
+                  <>
+                     <TableReview 
+                      key={myreview._id}
+                      myreview={myreview} 
+                      handleDelete={handleDelete}
+                      handleEdit={handleEdit}
+                      />
+                  </> 
+
+                  :
+                  <>
+                    <p className='text-black'>nai</p>
+                  </>
+                }
+             
+
+              </>
+               )
             }
           </tbody>
         </table>

@@ -1,15 +1,13 @@
 import React from 'react';
 
-const TableReview = ({ myreview, handleDelete,handleEdit }) => {
+const TableReview = ({ myreview, handleDelete, handleEdit }) => {
 
-  const { _id, serviceName, textarea,uid } = myreview
-  console.log(myreview);
+  const { _id, serviceName, textarea } = myreview
+  // console.log(myreview);
   return (
     <>
-      {
-        uid ?
-        <>
-             <tr>
+
+      <tr>
         <th>
           <label>
             <input type="checkbox" className="checkbox" />
@@ -26,19 +24,11 @@ const TableReview = ({ myreview, handleDelete,handleEdit }) => {
           {textarea}
         </td>
         <td>
-          <button onClick={() => handleEdit(_id)}>
-             Edit
-          </button>
-          <button onClick={() => handleDelete(_id)} className="btn btn-ghost btn-xs">Delete</button>
+          <button onClick={() => handleEdit(_id)} className="btn btn-outline btn-primary mr-2">Edit</button>
+          <button onClick={() => handleDelete(_id)} className="btn btn-outline btn-secondary">Delete</button>
+
         </td>
       </tr>
-        </>
-        :
-        <>
-          <p className='text-2xl text-black'>No reviews were added</p>
-        </>
-      }
-   
 
     </>
   );
