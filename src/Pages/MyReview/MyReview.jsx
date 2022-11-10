@@ -7,46 +7,47 @@ import TableReview from './TableReview';
 
 const MyReview = () => {
   useHooks('My Review');
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [reviwes, setReviwes] = useState([])
-  const [refresh,setRefresh] = useState(false)
+  const [refresh, setRefresh] = useState(false)
   const navigate = useNavigate();
   // console.log(reviwes);
   useEffect(() => {
-    fetch(`http://localhost:4000/reviews?email=${user?.email}`)
+    fetch(`https://b6a11-service-review-server-side-coderpbt.vercel.app/reviews?email=${user?.email}`)
       .then(res => res.json())
       .then(data => {
         setRefresh(!refresh)
         setReviwes(data)
       })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.email])
- 
-  const handleDelete = id =>{
-        fetch(`http://localhost:4000/reviews/${id}`, {
-            method: 'DELETE'
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if (data.deletedCount > 0){
-                toast.success('deleted successfully')
-                const remaining = reviwes.filter(odr => odr._id !== id);
-                setReviwes(remaining);
-            }
-        })
-   
-}
+
+  const handleDelete = id => {
+    fetch(`https://b6a11-service-review-server-side-coderpbt.vercel.app/reviews/${id}`, {
+      method: 'DELETE'
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.deletedCount > 0) {
+          toast.success('deleted successfully')
+          const remaining = reviwes.filter(odr => odr._id !== id);
+          setReviwes(remaining);
+        }
+      })
+
+  }
 
 
-const handleEdit = (id) => {
-  navigate(`/reviews/edit/${id}`)
-}
+  const handleEdit = (id) => {
+    navigate(`/reviews/edit/${id}`)
+  }
 
 
   return (
     <div className='xl:w-[1200px] mx-auto w-[95%]'>
       <div className="overflow-x-auto w-full py-14">
+
         <table className="table w-full">
 
           <thead>
@@ -58,36 +59,25 @@ const handleEdit = (id) => {
               </th>
               <th>Service Name</th>
               <th>Review</th>
-              <th>Favorite Color</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {
               reviwes.map(myreview =>
-                <>
-                {
-                  myreview.reviewIds ?
-                  <>
-                     <TableReview 
-                      key={myreview._id}
-                      myreview={myreview} 
-                      handleDelete={handleDelete}
-                      handleEdit={handleEdit}
-                      />
-                  </> 
-
-                  :
-                  <>
-                    <p className='text-black'>nai</p>
-                  </>
-                }
-             
-
-              </>
-               )
+                <TableReview
+                  key={myreview._id}
+                  myreview={myreview}
+                  handleDelete={handleDelete}
+                  handleEdit={handleEdit}
+                />
+              )
             }
           </tbody>
         </table>
+
+
+
       </div>
     </div>
   );

@@ -10,9 +10,9 @@ const ServiceDetails = () => {
   const newReview = useLoaderData()
   const [reviwes, setReviwes] = useState([])
   const [refresh,setRefresh] = useState(false)
-  console.log(reviwes);
+
   useEffect(() => {
-    fetch(`http://localhost:4000/reviews/${newReview._id}`)
+    fetch(`https://b6a11-service-review-server-side-coderpbt.vercel.app/reviews/${newReview._id}`)
       .then(res => res.json())
       .then(data => {
         setRefresh(!refresh)

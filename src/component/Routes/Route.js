@@ -28,12 +28,12 @@ export const router = createBrowserRouter([
       },
       {
         path:'/services',
-        loader: () => fetch('http://localhost:4000/servicesall'),
+        loader: () => fetch('https://b6a11-service-review-server-side-coderpbt.vercel.app/servicesall'),
         element: <Services />
       },
       {
         path:'/services/:id',
-        loader: ({params}) => fetch(`http://localhost:4000/services/${params.id}`),
+        loader: ({params}) => fetch(`https://b6a11-service-review-server-side-coderpbt.vercel.app/services/${params.id}`),
         element: <ServiceDetails />
       },
       {
@@ -54,10 +54,19 @@ export const router = createBrowserRouter([
       },
       {
         path:'/reviews/:id',
-        loader: ({params}) => fetch(`http://localhost:4000/reviews/${params.id}`),
+        loader: ({params}) => fetch(`https://b6a11-service-review-server-side-coderpbt.vercel.app/reviews/${params.id}`),
         element:<MyReview />
       },
+      {
+        path:'/reviews',
+        element:<PrivateRoute><MyReview /></PrivateRoute>
+      },
 
+      {
+        path:'/reviews',
+        loader : () => fetch('https://b6a11-service-review-server-side-coderpbt.vercel.app/reviews'),
+        element:<UpdateReview />
+      },
       {
         path:'/reviews',
         element:<PrivateRoute><MyReview /></PrivateRoute>

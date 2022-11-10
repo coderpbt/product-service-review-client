@@ -7,10 +7,8 @@ import { PhotoProvider } from 'react-photo-view';
 const Services = () => {
   const [services, setServices] = useState([]);
 
-
-  console.log(services);
   useEffect(() => {
-    fetch('http://localhost:4000/services')
+    fetch('https://b6a11-service-review-server-side-coderpbt.vercel.app/services')
       .then(res => res.json())
       .then(data => setServices(data))
   }, [])

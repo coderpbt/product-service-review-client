@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 
 
 const UpdateReview = () => {
+
   const router = useParams();
   const [reviews, setReviews] = useState([]);
   const { id } = router;
@@ -51,7 +52,7 @@ const UpdateReview = () => {
          <form onSubmit={handleSubmit}>
         <input className='border mb-4 w-full p-3'  type="text" defaultValue={reviews?.serviceName} name="name" placeholder='Edit Your Service Name' id="" />
         <br />
-        <input className='border mb-4 w-full p-3' type="text" defaultValue={reviews?.textarea} name="Edit Your Review" placeholder='review' id="" />
+        <input className='border mb-4 w-full p-3' type="text" defaultValue={reviews?.textarea} name="review" placeholder='Edit Your Review' id="" />
         <br />
         <button className="btn btn-primary">Update</button>
       </form>

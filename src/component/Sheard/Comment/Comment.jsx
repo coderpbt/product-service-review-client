@@ -33,7 +33,7 @@ const Comment = () => {
       time,
     }
 
-    fetch(`http://localhost:4000/reviews`, {
+    fetch(`https://b6a11-service-review-server-side-coderpbt.vercel.app/reviews`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
