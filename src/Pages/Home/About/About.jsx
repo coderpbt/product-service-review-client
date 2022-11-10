@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div className='py-14'>
       <div className='xl:w-[1200px] mx-auto w-[95%]'>
-          <div className='grid grid-cols-2 gap-5 justify-center items-center'>
+          <div className='grid lg:grid-cols-2 grid-cols-1 gap-5 justify-center items-center'>
             <div>
               <h2 className='text-4xl text-black font-bold pb-7'>About Us</h2>
               <p className='text-base text-black mb-3'>Our fitness coaches can enable you to meet your wellness objectives. They can turn into your instructor, your helper, your mentor and your companion.</p>

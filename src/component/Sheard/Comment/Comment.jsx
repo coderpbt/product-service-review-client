@@ -57,24 +57,24 @@ const Comment = () => {
   return (
     <div className="hero">
       <div className="hero-content w-[100%] flex-col">
-        <div className="card flex-shrink-0 w-full max-w-full shadow-2xl bg-base-100">
+        <div className="card flex-shrink-0 w-full lg:max-w-full max-w-[80%] shadow-2xl bg-base-100">
           {
             user?.uid ?
               <>
                 <div className="card-body w-full">
                   <form onSubmit={handleOnSubmit}>
-                    <div className="flex w-full justify-between">
+                    <div className="flex w-full justify-between flex-wrap">
                       <div className="form-control w-[98%] mr-2">
                         <label className="label">
                           <span className="label-text">Name</span>
                         </label>
-                        <input type="text" name='name' placeholder="Enter Full Name" className="input input-bordered" />
+                        <input type="text" name='name' placeholder="Enter Full Name" className="input box-border input-bordered" />
                       </div>
                       <div className="form-control w-[98%] ml-2">
                         <label className="label">
                           <span className="label-text">Email</span>
                         </label>
-                        <input type="email" name='email' placeholder="Enter Email" className="input input-bordered" />
+                        <input type="email" name='email' placeholder="Enter Email" className="input box-border input-bordered" />
                       </div>
                     </div>
 
@@ -82,7 +82,7 @@ const Comment = () => {
                       <label className="label">
                         <span className="label-text">Review</span>
                       </label>
-                      <textarea name='textarea' className="textarea textarea-primary" placeholder="Write Review"></textarea>
+                      <textarea name='textarea' className="textarea textarea-primary box-border" placeholder="Write Review"></textarea>
                     </div>
 
                     <div className="form-control mt-6">

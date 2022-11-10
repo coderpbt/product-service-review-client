@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
       },
       {
         path:'/addservice',
-        element:<AddServices />
+        element:<PrivateRoute><AddServices /></PrivateRoute>
       },
       {
         path:'/reviews/:id',

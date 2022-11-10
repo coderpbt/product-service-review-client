@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 import useHooks from '../../component/Sheard/Hooks/useHooks';
 
 
@@ -31,9 +32,8 @@ const AddServices = () => {
       .then(data => {
         console.log(data)
         if (data.acknowledged) {
-          alert('Services add successfully')
+          toast.success('Services add successfully')
           form.reset();
-
         }
       })
       .catch(er => console.error(er));
