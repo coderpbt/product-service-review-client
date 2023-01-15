@@ -18,7 +18,9 @@ const Services = () => {
     <div className='bg-[#fff]'>
     <div className='xl:w-[1200px] mx-auto w-[95%]'>
       <div className='w-[100%]'>
+      <h2 className='text-center font-bold text-3xl pt-10'>Our Services</h2>
         <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 pt-2'>
+          
           <PhotoProvider>          {
             services.map(item => <ServicesAllTemplate key={item._id} item={item} />)
           }

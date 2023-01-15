@@ -12,7 +12,7 @@ const ServicesAllTemplate = ({item}) => {
   return (
     <div className="card card-compact shadow-xl my-12">
      <PhotoView src={image_url}>
-       <figure><img src={image_url} alt="logos" /></figure>
+       <figure><img className='h-96 w-full object-cover' src={image_url} alt="logos" /></figure>
       </PhotoView>
     <div className="card-body">
       <h2 className="card-title text-lg text-left text-black">{title}</h2>

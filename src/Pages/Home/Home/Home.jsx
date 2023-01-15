@@ -1,5 +1,6 @@
 import React from 'react';
 import useHooks from '../../../component/Sheard/Hooks/useHooks';
+import Proven from '../../ProvenPage/Proven';
 import About from '../About/About';
 import Banner from '../Banner/Banner';
 import HelthCose from '../HelthCose/HelthCose';
@@ -13,6 +14,7 @@ const Home = () => {
       <Services />
       <About />
       <HelthCose />
+      <Proven />
     </div>
   );
 };

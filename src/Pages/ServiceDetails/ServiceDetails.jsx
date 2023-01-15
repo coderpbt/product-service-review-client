@@ -23,7 +23,7 @@ const ServiceDetails = () => {
 
   return (
     <div className='bg-[#fff]'>
-      <div className='xl:w-[800px] mx-auto w-[95%]'>
+      <div className='xl:w-[900px] mx-auto w-[95%]'>
         <div className="card card-compact shadow-xl pt-9">
 
           <figure><img src={servicesData.image_url} alt="logos" /></figure>
@@ -37,7 +37,7 @@ const ServiceDetails = () => {
             <p className="text-base text-justify text-black">
               {servicesData.details}
             </p>
-            <div className='py-14'>
+            <div className='py-4'>
               <h2 className='text-3xl text-black mb-5'>Reviews</h2>
 
               {
@@ -46,12 +46,11 @@ const ServiceDetails = () => {
                    
                     <div className='flex border p-2 mb-5'>
                       <div className='mr-4'>
-                        <img className='w-[100px]' src={reviweItem?.user} alt="" />
+                        <img className='w-[80px] rounded-full' src={reviweItem?.user} alt="" />
                       </div>
                       <div>
-                        <h2 className='text-black font-bold text-xl'>{reviweItem.customer}</h2>
-                        <p>{reviweItem.textarea}</p>
-                        <p>{reviweItem.time}</p>
+                        <h2 className='text-black font-bold text-xl mb-2'>{reviweItem.customer}</h2>
+                        <p className='text-base'>{reviweItem.textarea}</p>
                       </div>
                     </div>
 
